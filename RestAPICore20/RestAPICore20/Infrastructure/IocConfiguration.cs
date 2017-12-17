@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Configuration;
+﻿using System;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using RestAPICore20.Models;
 using RestAPICore20.Models.Implements;
@@ -14,11 +15,12 @@ namespace RestAPICore20.Infrastructure
         /// </summary>
         /// <param name="services"></param>
         /// <param name="configuration"></param>
-        public static void AddDependencyInjection(this IServiceCollection services, IConfiguration configuration)
+        public static void AddDependencyInjection(this IServiceCollection services)
         {
 
             services.AddTransient<IStatable, StateImplements>();
             services.AddTransient<INoSQLRepository<StateModel>, LiteRepository<StateModel>>();
         }
+
     }
 }
