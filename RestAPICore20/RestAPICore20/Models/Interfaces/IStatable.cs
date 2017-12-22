@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace RestAPICore20.Models.Interfaces
 {
@@ -6,5 +7,6 @@ namespace RestAPICore20.Models.Interfaces
     {
         StateModel ReadState(Guid Id);
         bool SaveState(StateModel State);
+        IReadOnlyCollection<StateModel> ReadAll();
     }
 }

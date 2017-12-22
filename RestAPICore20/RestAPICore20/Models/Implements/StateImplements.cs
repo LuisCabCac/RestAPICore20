@@ -1,6 +1,7 @@
 ﻿using RestAPICore20.Models.Interfaces;
 using RestAPICore20.NoSQL.LiteDB.Repository;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 
 namespace RestAPICore20.Models.Implements
@@ -27,6 +28,10 @@ namespace RestAPICore20.Models.Implements
             if (NoSQLRepository.Count(state => state.Id == State.Id) > 0)
                 return false;
             return NoSQLRepository.Save(State);
+        }
+        public IReadOnlyCollection<StateModel> ReadAll()
+        {
+            return NoSQLRepository.GetAll(state => state != null).ToList();
         }
     }
 }

@@ -41,9 +41,9 @@ namespace RestAPICore20.Controllers
         // GET api/state
         [HttpGet()]
         [Produces("application/json")]
-        public Guid Get()
+        public IReadOnlyCollection<StateModel> Get()
         {
-            return Guid.NewGuid();
+            return this.Statable.ReadAll();
         }
 
     }
